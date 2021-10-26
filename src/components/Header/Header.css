@@ -1,0 +1,72 @@
+.page-header {
+    position: absolute;
+    height: 76px;
+    width: 1366px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 0px rgba(17, 17, 17, 0.1);
+
+}
+
+.logo img {
+    position: absolute;
+    left: 3.73%;
+    right: 83.46%;
+    top: 28.95%;
+    bottom: 28.95%;
+}
+
+.page-header__nav {
+    /*border: 1px solid red;*/
+
+    position: absolute;
+    top: 7px;
+    right: 574px;
+    width: 134px;
+    height: 70px;
+    padding: 0px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.page-header__nav a {
+    text-decoration: none;
+    position: relative;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: calc(50% - 24px / 2 - 2px);
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    display: flex;
+    align-items: flex-end;
+    color: rgba(17, 17, 17, 0.48);
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.page-header__nav a.active-link {
+    font-weight: bold;
+}
+
+.page-header__nav a:hover {
+    text-decoration: underline;
+}
+
