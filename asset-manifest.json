@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/test-task-for-ad/static/css/main.310daedf.chunk.css",
+    "main.js": "/test-task-for-ad/static/js/main.14b83db4.chunk.js",
+    "main.js.map": "/test-task-for-ad/static/js/main.14b83db4.chunk.js.map",
+    "runtime-main.js": "/test-task-for-ad/static/js/runtime-main.89eaf8cd.js",
+    "runtime-main.js.map": "/test-task-for-ad/static/js/runtime-main.89eaf8cd.js.map",
+    "static/js/2.b2ba4def.chunk.js": "/test-task-for-ad/static/js/2.b2ba4def.chunk.js",
+    "static/js/2.b2ba4def.chunk.js.map": "/test-task-for-ad/static/js/2.b2ba4def.chunk.js.map",
+    "index.html": "/test-task-for-ad/index.html",
+    "static/css/main.310daedf.chunk.css.map": "/test-task-for-ad/static/css/main.310daedf.chunk.css.map",
+    "static/js/2.b2ba4def.chunk.js.LICENSE.txt": "/test-task-for-ad/static/js/2.b2ba4def.chunk.js.LICENSE.txt",
+    "static/media/Logo_imi_horizontal.ebc61eb0.svg": "/test-task-for-ad/static/media/Logo_imi_horizontal.ebc61eb0.svg",
+    "static/media/plus.26f09513.svg": "/test-task-for-ad/static/media/plus.26f09513.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.89eaf8cd.js",
+    "static/js/2.b2ba4def.chunk.js",
+    "static/css/main.310daedf.chunk.css",
+    "static/js/main.14b83db4.chunk.js"
+  ]
+}
