@@ -2,12 +2,12 @@ const SET_PERSON_DATA = 'SET_PERSON_DATA'
 
 const initialState = {
     personData: {
-        name: 'Василий',
-        age: 25,
+        // name: 'Василий',
+        // age: 25,
         children: [
-            { id: 1, name: 'Петр', age: 5 },
-            { id: 2, name: 'Lena', age: 7 },
-            { id: 3, name: 'Zhenya', age: 10 },
+            // { id: 1, name: 'Петр', age: 5 },
+            // { id: 2, name: 'Lena', age: 7 },
+            // { id: 3, name: 'Zhenya', age: 10 },
         ],
     }
 }

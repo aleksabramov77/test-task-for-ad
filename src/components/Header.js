@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo_imi_horizontal from '../img/svg/Logo_imi_horizontal.png'
+import Logo_imi_horizontal from '../img/svg/Logo_imi_horizontal.svg'
 import {  NavLink } from 'react-router-dom'
 
 const Header = () => {

@@ -1,11 +1,14 @@
 .main__form-page {
   width: 616px;
+  position: relative;
 }
 
 .form-block {
   font-size: 16px;
   //display: grid;
   //grid-gap: 10px;
+  margin-bottom: 44px;
+
 
   &__title {
     font-weight: 500;
@@ -16,9 +19,9 @@
     display: grid;
     grid-gap: 10px;
 
-    &_person {
-      margin-bottom: 44px;
-    }
+    //&_person {
+    //  margin-bottom: 44px;
+    //}
   }
 
   &__inputs_child {
@@ -29,6 +32,79 @@
   }
 }
 
+.button {
+  border: 2px solid #01A7FD;
+  box-sizing: border-box;
+  border-radius: 100px;
+  height: 44px;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  :hover{
+
+  }
+
+  &__container {
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .color-blue {
+      filter: invert(66%) sepia(47%) saturate(7425%) hue-rotate(173deg) brightness(102%) contrast(105%);;
+    }
+
+  }
+
+  &__text {
+    font-family: Montserrat;
+    margin-left: 4px;
+    height: 24px;
+  }
+
+  &__submit {
+    background-color: #01A7FD;
+    color: #FFFFFF;
+
+    &_one-child{
+      margin-top: 30px;
+    }
+
+    &_zero-child {
+      position: absolute;
+      top: 199px
+    }
+
+    &_error{
+      opacity: 50%;
+    }
+  }
+
+  &__add-child {
+    color: #01A7FD;
+    background-color: #FFFFFF;
+    position: absolute;
+    right: 0;
+    top: 199px;
+
+    &_first {
+      width: 44px;
+    }
+
+    &_more {
+    }
+
+    &_disabled {
+      opacity: 0.56;
+
+    }
+  }
+}
+
 
 .input {
   box-sizing: border-box;
@@ -36,13 +112,18 @@
   border-radius: 4px;
   height: 56px;
   padding: 8px 16px 6px;
-  //margin-bottom: 10px;
 
-  &__title {
+  &__head {
+    display: flex;
+    justify-content: space-between;
     font-size: 13px;
     line-height: 16px;
     padding: 0;
     color: rgba(17, 17, 17, 0.48);
+  }
+
+  &__error {
+    color: red;
   }
 
   &__field {
