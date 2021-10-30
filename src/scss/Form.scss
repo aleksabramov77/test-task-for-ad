@@ -44,9 +44,6 @@
   justify-content: center;
   cursor: pointer;
 
-  :hover{
-
-  }
 
   &__container {
     margin: 10px 20px;
@@ -70,7 +67,7 @@
     background-color: #01A7FD;
     color: #FFFFFF;
 
-    &_one-child{
+    &_one-child {
       margin-top: 30px;
     }
 
@@ -79,7 +76,7 @@
       top: 199px
     }
 
-    &_error{
+    &_error {
       opacity: 50%;
     }
   }
