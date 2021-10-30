@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import "Header";
+@import "Footer";
+@import "Preview";
+@import "Form";
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  //-webkit-appearance: none;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F2F2F2;
+  box-sizing: border-box;
+
+  font-family: Montserrat;
+  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  //input {border:0;outline:0;}
+  //input:focus {outline:none!important;}
+
+  a {
+    text-decoration: none;
+    color: #111111;
+  }
+
+  .font-grey {
+    color: rgba(17, 17, 17, 0.48);
+  }
+
+  .App {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    width: 1366px;
+    //height: 100vh;
+    min-height: 768px;
+  }
+}
+
+.page-header,
+.page-footer {
+  height: 76px;
+  position: relative;
+}
+
+.main {
+  flex-grow: 1;
+  margin-top: 30px;
+  margin-left: 375px;
+}
+
+
+
+
+
+
+

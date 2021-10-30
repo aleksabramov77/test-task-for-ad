@@ -1,0 +1,13 @@
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FAFAFA;
+  box-shadow: 0px 1px 0px rgba(17, 17, 17, 0.1);
+
+  &__text {
+    height: 16px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
