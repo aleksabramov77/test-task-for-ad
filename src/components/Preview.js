@@ -1,22 +1,9 @@
 import React from 'react'
 
 const Preview = ({ personData }) => {
-    const ageToText = (age) => {
-        let txt, count = age % 100;
-        if (count >= 5 && count <= 20) {
-            txt = 'лет';
-        } else {
-            count = count % 10;
-            if (count === 1) {
-                txt = 'год';
-            } else if (count >= 2 && count <= 4) {
-                txt = 'года';
-            } else {
-                txt = 'лет';
-            }
-        }
-        return `${age} ${txt}`;
-    }
+    /* Correct end of age (год года лет) */
+    const ageToText = age => (age + ' ' + ['год', 'года', 'лет']
+        [(age % 100 > 4 && age % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(age % 10 < 5) ? age % 10 : 5]])
 
     return (
         <div className='main__preview'>
