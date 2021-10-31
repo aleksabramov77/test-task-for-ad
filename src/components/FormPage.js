@@ -1,13 +1,20 @@
-import { Field, Form } from 'react-final-form'
-import { setPersonData } from '../store/mainReducer'
 import React from 'react'
-import arrayMutators from 'final-form-arrays'
+import { Field, Form } from 'react-final-form'
 import { FieldArray } from 'react-final-form-arrays'
+import arrayMutators from 'final-form-arrays'
+import { setPersonData } from '../store/mainReducer'
 import plus_icon from '../img/svg/plus.svg'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 const FormPage = ({ personData }) => {
+
     const dispatch = useDispatch()
+    const history = useHistory()
+    const onsubmit = (formData) => {
+        dispatch(setPersonData(formData))
+        history.push('preview')
+    }
 
     /* Validators */
     const composeValidators = (...validators) => value =>
@@ -42,7 +49,7 @@ const FormPage = ({ personData }) => {
     return (
         <>
             <Form
-                onSubmit={formData => dispatch(setPersonData(formData))}
+                onSubmit={onsubmit}
                 mutators={{ ...arrayMutators }}
                 initialValues={personData}
                 render={({
@@ -100,37 +107,39 @@ const FormPage = ({ personData }) => {
                                     {/* Array of child data inputs */}
                                     <FieldArray name="children">
                                         {({ fields }) =>
-                                            fields.map((name, index) => (
-
-                                                /* Child input block */
-                                                <div className='form-block__inputs_child' key={name}>
-                                                    <Field
-                                                        name={`${name}.id`}
-                                                        component="input"
-                                                        hidden={true}
-                                                        initialValue={index + 1}/>
-                                                    <Field
-                                                        name={`${name}.name`}
-                                                        fieldLabel='Имя'
-                                                        component={Input}
-                                                        placeholder="name"
-                                                        validate={composeValidators(required, isName)}
-                                                    />
-                                                    <Field
-                                                        name={`${name}.age`}
-                                                        fieldLabel='Возраст'
-                                                        component={Input}
-                                                        placeholder="age"
-                                                        validate={composeValidators(required, isAge)}
-                                                    />
-                                                    <div className='form-block__button-delete'
-                                                         onClick={() => fields.remove(index)}
-                                                         style={{ cursor: 'pointer' }}
-                                                    >
-                                                        Удалить
+                                            fields.map((name, index) => {
+                                                return (
+                                                    /* Child input block */
+                                                    <div className='form-block__inputs_child' key={index}>
+                                                        <Field
+                                                            name={`${name}.id`}
+                                                            component="input"
+                                                            hidden={true}
+                                                            initialValue={index}
+                                                        />
+                                                        <Field
+                                                            name={`${name}.name`}
+                                                            fieldLabel='Имя'
+                                                            component={Input}
+                                                            type='text'
+                                                            validate={composeValidators(required, isName)}
+                                                        />
+                                                        <Field
+                                                            name={`${name}.age`}
+                                                            fieldLabel='Возраст'
+                                                            component={Input}
+                                                            type='number'
+                                                            validate={composeValidators(required, isAge)}
+                                                        />
+                                                        <div className='form-block__button-delete'
+                                                             onClick={() => fields.remove(index)}
+                                                             style={{ cursor: 'pointer' }}
+                                                        >
+                                                            Удалить
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ))
+                                                )
+                                            })
                                         }
                                     </FieldArray>
                                 </div>
@@ -147,7 +156,6 @@ const FormPage = ({ personData }) => {
                                         <div className='button__text'>
                                             Сохранить
                                         </div>
-
                                     </div>
                                 </button>
                             </div>
