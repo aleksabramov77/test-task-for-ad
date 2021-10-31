@@ -12,6 +12,7 @@ const initialState = {
     }
 }
 
+/* Reducer */
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_PERSON_DATA:
@@ -31,7 +32,7 @@ const mainReducer = (state = initialState, action) => {
     }
 }
 
-/* ACTIONS */
+/* Actions */
 export const setPersonData = (formData) => ({ type: SET_PERSON_DATA, formData })
 
 export default mainReducer

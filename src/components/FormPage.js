@@ -1,28 +1,21 @@
 import { Field, Form } from 'react-final-form'
 import { setPersonData } from '../store/mainReducer'
-import React, { useState } from 'react'
+import React from 'react'
 import arrayMutators from 'final-form-arrays'
 import { FieldArray } from 'react-final-form-arrays'
 import plus_icon from '../img/svg/plus.svg'
+import { useDispatch } from 'react-redux'
 
-const FormPage = ({ personData, setPersonData }) => {
+const FormPage = ({ personData }) => {
+    const dispatch = useDispatch()
 
     /* Validators */
     const composeValidators = (...validators) => value =>
         validators.reduce((error, validator) => error || validator(value), undefined)
-
     const required = value =>
         value
             ? undefined
             : 'Поле обязательно'
-    const maxLength = max => value =>
-        value && value.length > max
-            ? `Must be ${max} characters or less`
-            : undefined
-    const minLength = min => value =>
-        value && (value.length < min)
-            ? `Must be ${min} characters or more`
-            : undefined
     const isName = value =>
         value && !/^[a-яА-Яa-zA-Z ]+$/.test(value)
             ? `Не корректное имя`
@@ -49,26 +42,17 @@ const FormPage = ({ personData, setPersonData }) => {
     return (
         <>
             <Form
-                onSubmit={setPersonData}
-                mutators={{
-                    ...arrayMutators
-                }}
+                onSubmit={formData => dispatch(setPersonData(formData))}
+                mutators={{ ...arrayMutators }}
                 initialValues={personData}
-
                 render={({
-                    handleSubmit,
-                    values,
-                    form: {
-                        mutators: { push }
-                    },
-                    hasValidationErrors,
-                    pristine,
-                    errors,
+                    handleSubmit, values, hasValidationErrors, pristine,
+                    form: { mutators: { push } }
                 }) => {
-                    console.log(errors)
                     return (
-
                         <form onSubmit={handleSubmit} className='main__form-page'>
+
+                            {/* Person data input block */}
                             <div className='form-block'>
                                 <div className='form-block__title'>Персональные данные</div>
                                 <div className='form-block__inputs form-block__inputs_person'>
@@ -77,7 +61,6 @@ const FormPage = ({ personData, setPersonData }) => {
                                         fieldLabel='Имя'
                                         component={Input}
                                         type='text'
-                                        // placeholder={dataType}
                                         validate={composeValidators(required, isName)}
                                     />
                                     <Field
@@ -85,13 +68,13 @@ const FormPage = ({ personData, setPersonData }) => {
                                         fieldLabel='Возраст'
                                         component={Input}
                                         type='number'
-                                        // placeholder={dataType}
                                         validate={composeValidators(required, isAge)}
                                     />
                                 </div>
 
                             </div>
 
+                            {/* Add child button */}
                             <button
                                 type="button"
                                 className={'button button__add-child button__add-child_' +
@@ -101,27 +84,25 @@ const FormPage = ({ personData, setPersonData }) => {
                                         ? 'more'
                                         : 'disabled'))}
                                 onClick={() => push('children', undefined)}
-                                // onClick={onAddChildButton}
                                 disabled={values.children && values.children.length >= 5}
                             >
                                 <div className='button__container'>
-                                    <img className='color-blue' src={plus_icon}/>
+                                    <img className='color-blue' src={plus_icon} alt='plus'/>
                                     {values.children.length > 0 &&
-                                    <div className='button__text'>Добавить ребенка</div>
-                                    }
+                                    <div className='button__text'>Добавить ребенка</div>}
                                 </div>
                             </button>
 
+                            {/* Children data input block */}
                             <div className='form-block'>
-
                                 {values.children.length > 0 && <div className='form-block__title'>Дети (макс.5)</div>}
-
                                 <div className='form-block__inputs'>
-
-
+                                    {/* Array of child data inputs */}
                                     <FieldArray name="children">
                                         {({ fields }) =>
                                             fields.map((name, index) => (
+
+                                                /* Child input block */
                                                 <div className='form-block__inputs_child' key={name}>
                                                     <Field
                                                         name={`${name}.id`}
@@ -154,6 +135,7 @@ const FormPage = ({ personData, setPersonData }) => {
                                     </FieldArray>
                                 </div>
 
+                                {/* Submit button */}
                                 <button
                                     className={'button button__submit  button__submit_' + (!values.children.length
                                         ? 'zero-child'

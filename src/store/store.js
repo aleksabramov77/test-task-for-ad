@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux'
-
 import mainReducer from './mainReducer'
 
-let reducers = combineReducers({
+
+const reducers = combineReducers({
     personData: mainReducer,
 })
 

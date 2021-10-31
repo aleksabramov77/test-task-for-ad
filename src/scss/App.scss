@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 @import "Header";
 @import "Footer";
 @import "Preview";
@@ -12,15 +12,26 @@ body {
   background-color: #F2F2F2;
   box-sizing: border-box;
 
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   color: #000000;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
 
-  //input {border:0;outline:0;}
-  //input:focus {outline:none!important;}
+  /* hiding arrows in number input*/
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
 
   a {
     text-decoration: none;
